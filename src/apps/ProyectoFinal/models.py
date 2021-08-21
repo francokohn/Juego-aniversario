@@ -11,3 +11,7 @@ class Usuario(models.Model):
 
 	class Meta:
 		db_table = 'usuarios'
+
+	def __str__(self):
+		return self.nombre
+	

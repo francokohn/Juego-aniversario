@@ -18,15 +18,23 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'juego',
+    'django.contrib.staticfiles'
 ]
+
+LOCAL_APPS = [
+    'apps.ProyectoFinal'
+]
+
+THIRD_APPS = [
+]
+
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -57,7 +65,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Proyecto_G8.wsgi.application'
-
+    
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

@@ -4,6 +4,6 @@ from .views import inicio
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('inicio/', inicio),
+    path('', inicio),
     path('Usuarios/', include('apps.ProyectoFinal.urls'))
 ]

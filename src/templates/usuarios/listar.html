@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Usuarios</title>
+</head>
+<body>
+	<h1>Lista de Usuarios:</h1>
+	<p>
+		<ul>
+		{% for u in usuarios %}
+				<li>{{u.nombre}}</li>	
+		{% endfor %}
+		</ul>
+	</p>
+	<h2>Administradores</h2>
+</body>
+</html>

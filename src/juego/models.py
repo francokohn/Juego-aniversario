@@ -30,7 +30,7 @@ class Partida(models.Model):
 class Pregunta(models.Model):
     texto_pregunta = models.CharField(max_length=255)
     id_partida = models.ManyToManyField('Partida')
-    respuestas = models.ManyToManyField('Respuesta')
+    respuestas = models.ForeignField('Respuesta', on_delete=models.CASCADE,))
 
     class Meta:
         db_table = 'pregunta'

@@ -28,7 +28,7 @@ class Partida(models.Model):
 
 
 class Pregunta(models.Model):
-    texto_pregunta = models.CharField(max_length=255, default=Inserte pregunta)
+    texto_pregunta = models.CharField(max_length=255)
     id_partida = models.ManyToManyField('Partida')
     respuestas = models.ManyToManyField('Respuesta')
 
@@ -42,6 +42,7 @@ class Pregunta(models.Model):
 class Respuesta(models.Model):
     id_pregunta = models.ForeignKey('Pregunta', on_delete=models.CASCADE,)
     es_correcta = models.BooleanField()
+    texto_respuesta = models.CharField(max_length=255)
 
     class Meta:
         db_table = 'respueta'

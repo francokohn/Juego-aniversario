@@ -16,7 +16,6 @@ class Usuario(AbstractUser):
 
 
 	""""
-	asd
 	class Partida(models.Model):
     puntos = models.IntegerField()
     cnt_respondidas = models.IntegerField()

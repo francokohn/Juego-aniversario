@@ -5,23 +5,37 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS mt-5 -->
+    <title>Login - Proyecto Informatorio - Grupo 8</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <title>Login - Proyecto Informatorio - Grupo 8</title>
+    <style>
+      body{
+        background: #ffe259;
+        background: linear-gradient(to right, #ffa751, #ffe259);
+      }
+      .bg{
+        background-image: url(img/puebapsd.jpg);
+        background-position: center-center;
+      }
+    </style>
+
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col">
+    <div class="p-3">
+    <div class="container w-75 bg-primary mt-5 rounded shadow">
+      <div class="row align-items-stretch">
+        <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
           
         </div>
-        <div class="col">
+        <div class="col bg-white py-5 rounded-end">
           <div class="text-end">
-            <img src="img/llogo.png">
-            
+            <img src="img/llogo.png"> 
           </div>
-          <h2 class="fw-bold text-center py-5">Bienvenido</h2>
+          <h2 class="fw-bold text-center py-5">Bienvenido </h2>
+          <div class="alert alert-secondary" role="alert">
+  			Hola! Para poder acceder al juego de preguntas y respuestas relacionado al aniversario de Provincialización del Chaco, tenes que iniciar sesion &#128512;.
+          </div>
           <!-- LOGIN -->
           <form action="#">
             <div class="mb-4">
@@ -40,24 +54,24 @@
             <div class="d-grid">
               <button type="submit" class="btn btn-primary">Inicio Sesion</button>
             </div>
-            <div class="my-3">
-              <span>¿No tienes cuenta?<a href="#">Registrate</a></span><br>
-               <span><a href="#">Recuperar Password</a></span>
+            <div class="my-3"><br>
+              <span>&#128526;¿No tenes cuenta? <a href="#">Registrate</a></span><br>
+              <span><br>&#129300;¿No recordas tu contraseña? <a href="#">Recuperar Password</a></span>
             </div>
           </form>
           <!-- LOGIN CON REDES SOCIALES-->
           <div class="container w-100 my-5">
             <div class="row text-center">
-              <div class="col-12">Iniciar Sesiòn</div>
+              <div class="col-12">Iniciar Sesión</div>
             </div>
             <div class="row">
                 <div class="col">
                   <button class="btn btn-outline-primary w-100 my-1">
                     <div class="row align-items-center">
-                      <div class="col-2">
+                      <div class="col-2 d-none d-md-block">
                         <img src="img/face.png" width="32" alt="">
                       </div>
-                      <div class="col-10 text-center">
+                      <div class="col-12 col-md-10 text-center">
                         Facebook
                       </div>
                     </div>
@@ -66,10 +80,10 @@
                <div class="col">
                   <button class="btn btn-outline-danger w-100 my-1">
                     <div class="row align-items-center">
-                      <div class="col-2">
+                      <div class="col-2 d-none d-md-block">
                         <img src="img/g.png" width="32" alt="">
                       </div>
-                      <div class="col-10 text-center">
+                      <div class="col-12 col-md-10 text-center">
                         Google
                       </div>
                     </div>
@@ -80,6 +94,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="js/bootstrap.bundle.min.js"></script>

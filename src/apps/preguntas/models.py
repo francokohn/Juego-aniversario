@@ -18,6 +18,7 @@ class Pregunta(models.Model):
 
     #id_partida = models.ManyToManyField('Partida')
 
+
     class Meta:
         db_table = 'Pregunta'
 

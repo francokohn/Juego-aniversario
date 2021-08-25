@@ -1,9 +1,11 @@
 from django.contrib import admin
 #para poder utilizar los models de preguntas
-from preguntas.models import Pregunta, Respuesta
+from .models import Pregunta, Respuesta
 
-# Register your models here.
+class PreguntasAdmin (admin.ModelAdmin):
+	list_display = ['id','texto_pregunta','categoria']
+
 # para que el admin puedar gestionarlo
-admin.site.register(Pregunta)
+admin.site.register(Pregunta,PreguntasAdmin)
 admin.site.register(Respuesta)
 

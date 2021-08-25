@@ -21,11 +21,4 @@ class Partida(models.Model):
     preguntas = models.ForeignKey('Pregunta', on_delete=models.CASCADE,)
 
 
-class Pregunta(models.Model):
-    id_partida = models.ForeignKey('Partida', on_delete=models.CASCADE,)
-    respuestas = models.ForeignKey('Respuesta', on_delete=models.CASCADE,)
 
-
-class Respuesta(models.Model):
-    id_pregunta = models.ForeignKey('Pregunta', on_delete=models.CASCADE,)
-    es_correcta = models.BooleanField()

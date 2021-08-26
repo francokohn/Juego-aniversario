@@ -17,6 +17,7 @@ class Pregunta(models.Model):
     categoria = models.CharField(max_length=255,null=True,blank=True, choices=CEL_CHOICES)
     #respuestas = models.ForeignField('Respuesta', on_delete=models.CASCADE,)
     id_partida = models.ManyToManyField('Partida')
+    #puntos = models.
     #partidas = models.ManyToManyField(partida, on_delete=models.CASCADE)
 
     class Meta:

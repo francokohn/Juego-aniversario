@@ -6,6 +6,9 @@
     <form>
       <div method="POST"> {% csrf_token %}
         {{form.as_p}}
+
+        {{form1.as_p}}
+        {{form1.as_p}}
         <button type="submit"> Guardar </button>
         <button> Cancelar </button>
       </div>

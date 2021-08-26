@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Pregunta
-from .forms import PreguntaForm
+from .forms import PreguntaForm,RespuestaForm
 from django.views.generic import CreateView
 
 def crear_pregunta(request):
@@ -13,7 +13,8 @@ def crear_pregunta(request):
 	#	return redirect('PAGINA DE PREGUNTAS LISTADAS')
 
 	ctx = {
-		 'form': PreguntaForm()
+		'form': PreguntaForm(),
+		'form1': RespuestaForm()
 	}
 
 	return render(request,template_name,ctx)

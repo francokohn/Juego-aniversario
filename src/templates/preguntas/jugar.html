@@ -1,0 +1,24 @@
+{% extends "base/base.html" %}
+
+{% block contenido %}
+    <h1> Pregunta: </h1>
+
+    <form>
+      <div method="POST"> {% csrf_token %}
+        {% for p in preguntas %}
+          {{p.texto_pregunta}}
+
+          {% for r in respuestas %}
+            {{r.texto_respuesta}}
+          {% endfor %}
+
+        {% empty %}
+          Ya respondio todas
+        {% endfor %}
+        
+      </div>
+      <button type="submit"> Continuar </button>
+        <button> Salir </button>
+    </form>
+
+{% endblock contenido %}

@@ -33,7 +33,6 @@ DJANGO_APPS = [
 ]
 
 LOCAL_APPS = [
-    'apps.ProyectoFinal',
     'apps.usuarios',
     'apps.preguntas'
 ]

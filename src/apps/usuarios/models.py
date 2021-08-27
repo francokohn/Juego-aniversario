@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+#from preguntas.models import Pregunta 
 
 
 class Usuario(AbstractUser):

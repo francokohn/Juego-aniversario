@@ -23,11 +23,17 @@ def crear_pregunta(request):
 @login_required
 def preguntar(request):
 	template_name = "preguntas/jugar.html"
-	lista_de_preguntas = Pregunta.objects.all()
-	lista_de_respuestas = Respuesta.objects.all()
-	ctx = {
-		'preguntas': lista_de_preguntas,
-		'respuetas': lista_de_respuestas
-	}
+	ctx = {}
+
+	
+	print("============")
+	rtas = Respuesta.objects.all()
+	pregs = Pregunta.objects.all()
+	for p in pregs:
+		print(p.texto_pregunta)
+		for r in rtas:
+			if r.pregunta.id == p.id:
+				print(r.texto_respuesta)
+	print("============")
 	
 	return render (request,template_name,ctx)

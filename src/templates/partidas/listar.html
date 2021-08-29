@@ -1,0 +1,27 @@
+{% extends "base/base.html" %}{% load static %}
+
+{% block contenido %}
+	<h1>Partidas jugadas:</h1>
+	<table class="table table-striped">
+        <thead>
+            <tr>
+				<th>ID</th>
+                {% if user.es_admin or user.is_superuser %}
+                <th>Usuario</th>
+                {% endif %}
+                <th>Puntos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in partidas %}
+            <tr>
+				<td>{{ p.id }}</td>
+                {% if user.es_admin or user.is_superuser %}
+                <th>{{ p.usuario.username }}</th>
+                {% endif %}
+                <td>{{ p.puntos }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock contenido %}

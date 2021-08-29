@@ -4,17 +4,15 @@ from .models import Usuario
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
+from utils.user_test import	es_admin
 
 RUTA_INICIO = 'usuarios:inicio'
 RUTA_LOGIN = 'usuarios:login'
 RUTA_LISTAR_USUARIOS = 'usuarios:listar'
 
-def es_admin(usuario):
-	return usuario.es_admin
-
 @login_required()
 @user_passes_test(es_admin, login_url = '', redirect_field_name = None)
-def listar_usuarios (request):
+def listar(request):
 	template_name = "usuarios/listar.html"
 	usuarios = Usuario.objects.all()
 	
@@ -32,7 +30,7 @@ def listar_usuarios (request):
 
 @login_required()
 @user_passes_test(es_admin, login_url = '', redirect_field_name = None)
-def crear_usuario(request):
+def crear(request):
 	template_name = "usuarios/crear.html"
 	form = CrearUsuarioForm()
 
@@ -61,15 +59,13 @@ def loguear(request):
         return redirect(RUTA_INICIO)
 
     if request.method=='POST':
-        print(request.POST)
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
 
         if user is not None :
             login(request, user)
-            url = RUTA_LISTAR_USUARIOS if user.es_admin else RUTA_INICIO
-            print(url)
+            url = RUTA_LISTAR_USUARIOS if es_admin(user) else RUTA_INICIO
             return redirect(url)
         else:
             print('Usuario incorrecto')
@@ -77,7 +73,7 @@ def loguear(request):
 
     return render(request, "usuarios/login.html")
 
-def registrar_usuario(request):
+def registrar(request):
 	if request.user.is_authenticated:
 		return redirect(RUTA_INICIO)
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Pregunta, Respuesta
-from .forms import PreguntaForm,RespuestaForm
+from .models import Pregunta
+from .forms import PreguntaForm
 from django.views.generic import CreateView
 from django.contrib.auth.decorators import login_required
 
@@ -14,8 +14,7 @@ def crear_pregunta(request):
 	#	return redirect('PAGINA DE PREGUNTAS LISTADAS')
 
 	ctx = {
-		'form': PreguntaForm(),
-		'form1': RespuestaForm()
+		'form': PreguntaForm()
 	}
 
 	return render(request,template_name,ctx)
@@ -24,10 +23,8 @@ def crear_pregunta(request):
 def preguntar(request):
 	template_name = "preguntas/jugar.html"
 	lista_de_preguntas = Pregunta.objects.all()
-	lista_de_respuestas = Respuesta.objects.all()
 	ctx = {
-		'preguntas': lista_de_preguntas,
-		'respuetas': lista_de_respuestas
+		'preguntas': lista_de_preguntas
 	}
 	
 	return render (request,template_name,ctx)

@@ -1,0 +1,26 @@
+{% extends "base/base.html" %}{% load static %} 
+
+{% block contenido %}
+	<div class="row login-form justify-content-center">
+		<h2 class="text-center col-12 my-4 border-bottom pb-3 text-uppercase">
+			Iniciar sesión
+		</h2>
+
+		<form method="POST" class="col-12 col-md-4"> {% csrf_token %}
+			<div class="form-group">
+				<label>Nombre de Usuario:</label>
+				<input type="text" class="form-control" id="username" name="username">
+			</div>
+
+			<div class="form-group">
+				<label>Contraseña</label>
+				<input type="password" class="form-control" id="password" name="password">
+			</div>
+
+			<div class="d-flex justify-content-center">
+				<a href="{% url 'usuarios:registro' %}" class="btn btn-link mr-2">Registrarme</a>
+				<button type="submit" class="btn btn-primary mr-2">Ingresar</button>
+			</div>
+		</form>
+	</div>
+{% endblock contenido %}

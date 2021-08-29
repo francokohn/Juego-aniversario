@@ -16,7 +16,7 @@ class Pregunta(models.Model):
 
 class Partida(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete = models.CASCADE)
-    fecha = models.DateTimeField()
+    fecha = models.DateTimeField(auto_now_add = True)
     puntos = models.IntegerField()
 
     class Meta:

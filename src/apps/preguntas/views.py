@@ -3,13 +3,11 @@ from .models import Pregunta
 from .forms import PreguntaForm
 from django.views.generic import CreateView
 from django.contrib.auth.decorators import login_required, user_passes_test
-
-def es_admin(usuario):
-	return usuario.es_admin
+from utils.user_test import es_admin
 
 @login_required()
 @user_passes_test(es_admin, login_url = '', redirect_field_name = None)
-def listar_preguntas(request):
+def listar(request):
 	template_name = "preguntas/listar.html"
 	preguntas = Pregunta.objects.all()
 
@@ -21,7 +19,7 @@ def listar_preguntas(request):
 
 @login_required
 @user_passes_test(es_admin, login_url = '/preguntas/', redirect_field_name = None)
-def crear_pregunta(request):
+def crear(request):
 	template_name = "preguntas/newquestion.html"
 
 	#if request.method == "POST":

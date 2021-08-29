@@ -1,19 +1,25 @@
 from django.contrib import admin
 #para poder utilizar los models de preguntas
-from .models import Pregunta, Respuesta, Partida
+from .models import Pregunta, Partida
 
 class PreguntasAdmin (admin.ModelAdmin):
-	list_display = ['id','texto_pregunta','categoria']
-admin.site.register(Pregunta,PreguntasAdmin)
-
-
-class RespuestasAdmin (admin.ModelAdmin):
-	list_display = ['pregunta','es_correcta','texto_respuesta']
-admin.site.register(Respuesta,RespuestasAdmin)
+	list_display = [
+		'id', 
+		'texto_pregunta', 
+		'respuesta_correcta', 
+		'respuesta_incorrecta_1', 
+		'respuesta_incorrecta_2'
+	]
 
 class PartidasAdmin (admin.ModelAdmin):
-	list_display = ['fecha','puntos','cnt_respondidas']
-admin.site.register(Partida,PartidasAdmin)
+	list_display = [
+		'usuario', 
+		'fecha', 
+		'puntos'
+	]
+
+admin.site.register(Pregunta, PreguntasAdmin)
+admin.site.register(Partida, PartidasAdmin)
 
 
 

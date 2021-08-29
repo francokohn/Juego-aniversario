@@ -1,5 +1,5 @@
 from django.shortcuts 	import render, redirect
-from .forms  			import UsuarioForm
+from .forms  			import RegistroUsuarioForm
 from .models 			import Usuario
 
 def listar_usuarios (request):
@@ -31,6 +31,6 @@ def nuevo_usuario(request):
 		form = Usuario()
 
 	ctx = {
-		'form': UsuarioForm()
+		'form': RegistroUsuarioForm()
 	}
 	return render (request,template_name,ctx)

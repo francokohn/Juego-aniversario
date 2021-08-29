@@ -2,9 +2,24 @@
 
 {% block contenido %}
 	<h1>Lista de Usuarios:</h1>
-	<ul>
-		{% for u in usuarios %}
-			<li>{{u.username}}</li>	
-		{% endfor %}
-	</ul>
+	<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre de usuario</th>
+                <th>Email</th>
+                <th>Último ingreso</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for u in usuarios %}
+            <tr>
+                <td>{{ u.id }}</td>
+                <td>{{ u.username }}</td>
+                <td>{{ u.email }}</td>
+                <td>{{ u.last_login }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock contenido %}

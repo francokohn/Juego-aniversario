@@ -16,7 +16,7 @@ def es_admin(usuario):
 @user_passes_test(es_admin, login_url = '', redirect_field_name = None)
 def listar_usuarios (request):
 	template_name = "usuarios/listar.html"
-	lista_de_usuarios = Usuario.objects.all()
+	usuarios = Usuario.objects.all()
 	
 	#para ver en consola los usuarios pasados (tamb lo puedo listar con un for)
 	#print(lista_de_usuarios)
@@ -25,7 +25,7 @@ def listar_usuarios (request):
 	#lista_de_usuarios = Usuario.objects.filter(id=1)
 
 	ctx = {
-		'usuarios' : lista_de_usuarios
+		'usuarios': usuarios
 	}	
 
 	return render(request,template_name,ctx)

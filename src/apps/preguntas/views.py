@@ -7,6 +7,18 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 def es_admin(usuario):
 	return usuario.es_admin
 
+@login_required()
+@user_passes_test(es_admin, login_url = '', redirect_field_name = None)
+def listar_preguntas(request):
+	template_name = "preguntas/listar.html"
+	preguntas = Pregunta.objects.all()
+
+	ctx = {
+		'preguntas' : preguntas
+	}	
+
+	return render(request, template_name, ctx)
+
 @login_required
 @user_passes_test(es_admin, login_url = '/preguntas/', redirect_field_name = None)
 def crear_pregunta(request):

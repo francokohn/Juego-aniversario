@@ -1,0 +1,27 @@
+{% extends "base/base.html" %}{% load static %}
+
+{% block contenido %}
+	<h1>Lista de Preguntas:</h1>
+	<table class="table table-striped">
+        <thead>
+            <tr>
+				<th>ID</th>
+                <th>Pregunta</th>
+                <th>Respuesta Correcta</th>
+                <th>Respuesta Incorrecta 1</th>
+                <th>Respuesta Incorrecta 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in preguntas %}
+            <tr>
+				<td>{{ p.id }}</td>
+                <td>{{ p.texto_pregunta }}</td>
+                <td>{{ p.respuesta_correcta }}</td>
+                <td>{{ p.respuesta_incorrecta_1 }}</td>
+                <td>{{ p.respuesta_incorrecta_2 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock contenido %}

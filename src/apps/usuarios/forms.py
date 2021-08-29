@@ -8,8 +8,9 @@ class RegistroUsuarioForm(UserCreationForm):
 		fields = [
 			"username",
 			"email",
-			"password"
-		]
+			"password1",
+			"password2"
+		] 
 
 class CrearUsuarioForm(UserCreationForm):
 	class Meta: 
@@ -17,7 +18,8 @@ class CrearUsuarioForm(UserCreationForm):
 		fields = [
 			"username",
 			"email",
-			"password",
+			"password1",
+			"password2",
 			"es_admin"
 		]
 

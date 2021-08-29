@@ -1,0 +1,20 @@
+{% extends "base/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+{% load static %}
+    <div class="row login-form justify-content-center">
+        <h2 class="text-center col-12 my-4 border-bottom pb-3 text-uppercase">
+            Registrarse
+        </h2>
+
+        <form method="POST" class="col-12 col-md-4"> {% csrf_token %}
+            {{ form|crispy }}
+
+            <div class="d-flex justify-content-center">
+                <a href="{% url 'usuarios:login' %}" class="btn btn-link mr-2">Iniciar sesión</a>
+                <button type="submit" class="btn btn-primary mr-2">Crear cuenta</button>
+            </div>
+        </form>
+    </div>
+{% endblock contenido %}

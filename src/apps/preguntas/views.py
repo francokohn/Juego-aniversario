@@ -2,8 +2,13 @@ from django.shortcuts import render, redirect
 from .models import Pregunta
 from .forms import PreguntaForm
 from django.views.generic import CreateView
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 
+def es_admin(usuario):
+	return usuario.es_admin
+
+@login_required
+@user_passes_test(es_admin, login_url = '/preguntas/', redirect_field_name = None)
 def crear_pregunta(request):
 	template_name = "preguntas/newquestion.html"
 

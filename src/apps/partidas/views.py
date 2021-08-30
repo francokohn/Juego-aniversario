@@ -50,7 +50,7 @@ def resultado(request):
         del request.session[SESSION_KEY]
         return render(request, template_name, ctx)
     else:
-        redirect(RUTA_INICIO)
+        return redirect(RUTA_INICIO)
 
 def get_nivel(jugador):
     try:

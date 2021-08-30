@@ -1,0 +1,27 @@
+{% extends "base/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+    <h1>Crear pregunta: </h1>
+
+    <form method="POST">{% csrf_token %}
+      <div> 
+        {{form|crispy}}
+
+        <a href="{% url 'preguntas:listar' %}" class="btn btn-link mr-2">Cancelar</a>
+        <button type="submit" class="btn btn-primary">
+          {% if tipo == 'pregunta' %}
+            Agregar pregunta
+          {% elif tipo == 'correcta' %}
+            Agregar respuesta correcta
+          {% else %}
+            Agregar respuesta incorrecta
+          {% endif %}
+        </button>
+
+        {% if completo %}
+          <a href="{% url 'preguntas:guardar' %}" class="btn btn-success mr-2">Enviar Formulario</a>
+        {% endif %}
+      </div>
+    </form>
+{% endblock contenido %}

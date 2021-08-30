@@ -10,6 +10,7 @@
                 <th>Email</th>
                 <th>Último ingreso</th>
                 <th>Partidas</th>
+                <th>     </th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +21,9 @@
                 <td>{{ u.email }}</td>
                 <td>{{ u.last_login }}</td>
                 <td>{{ u.partida_set.count }}</td>
+                <td>
+                    <a href="{% url 'usuarios:editar' u.pk %}">Editar</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

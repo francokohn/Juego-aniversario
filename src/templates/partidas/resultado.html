@@ -1,0 +1,23 @@
+{% extends "base/base.html" %}
+
+{% block contenido %}
+    <h1>Preguntas: </h1>
+    <ul class="list-group list-group-flush">
+      {% for pta in resultados %}
+      <li class="list-group-item">
+        <h3>Pregunta: {{ pta.0 }}</h3>
+        {% if pta.2 %}
+          <h3 class="alert-success py-1 px-3">Has respondido correctamente: {{ pta.1 }}</h3>
+        {% else %}
+          <h3 class="alert-danger py-1 px-3">Tu respuesta es incorrecta: {{ pta.1 }}</h3>
+        {% endif %}
+        <br>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <h1>Puntaje: {{ puntaje }}</h1>
+
+    <a href="{% url 'partidas:listar' %}">Ver partidas jugadas</a>
+
+{% endblock contenido %}

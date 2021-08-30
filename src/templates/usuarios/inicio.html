@@ -1,6 +1,8 @@
 {% extends "base/base.html" %}{% load static %}
 
 {% block contenido %}
-    <a href="{% url 'partidas:jugar' %}">Empezar Partida</a>
-    <a href="{% url 'partidas:listar' %}">Ver partidas jugadas</a>
+<div class="container d-flex align-items-center justify-content-center" style="height: 400px">
+    <a class="btn btn-primary col-12 col-md-4 mx-1" href="{% url 'partidas:jugar' %}">Empezar Partida</a>
+    <a class="btn btn-outline-primary col-12 col-md-4 mx-1" href="{% url 'partidas:listar' %}">Ver partidas jugadas</a>
+</div>
 {% endblock contenido %}

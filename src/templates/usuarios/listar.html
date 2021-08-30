@@ -1,6 +1,8 @@
 {% extends "base/base.html" %}{% load static %}
 
 {% block contenido %}
+    <a href="{% url 'usuarios:crear_usuario' %}" class="btn btn-secondary mr-2">Nuevo Usuario</a>
+    <hr>
 	<h1>Lista de Usuarios:</h1>
 	<table class="table table-striped">
         <thead>

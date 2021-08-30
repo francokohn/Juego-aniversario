@@ -1,15 +1,15 @@
 {% extends "base/base.html" %}{% load static %}
 
 {% block contenido %}
+    <a href="{% url 'preguntas:crear' %}" class="btn btn-secondary mr-2">Nueva Pregunta</a>
+    <hr>
 	<h1>Lista de Preguntas:</h1>
 	<table class="table table-striped">
         <thead>
             <tr>
 				<th>ID</th>
                 <th>Pregunta</th>
-                <th>Respuesta Correcta</th>
-                <th>Respuesta Incorrecta 1</th>
-                <th>Respuesta Incorrecta 2</th>
+                <th>     </th>
             </tr>
         </thead>
         <tbody>
@@ -17,9 +17,9 @@
             <tr>
 				<td>{{ p.id }}</td>
                 <td>{{ p.texto_pregunta }}</td>
-                <td>{{ p.respuesta_correcta }}</td>
-                <td>{{ p.respuesta_incorrecta_1 }}</td>
-                <td>{{ p.respuesta_incorrecta_2 }}</td>
+                <td>
+                    <a href="{% url 'preguntas:eliminar' p.pk %}">Eliminar</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

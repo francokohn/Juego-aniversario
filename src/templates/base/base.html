@@ -25,7 +25,24 @@
 
 	<body>
 		{% if user.is_authenticated  %}
-		<header>
+		<header class="d-flex justify-content-between mx-5 my-3">
+			<ul class="nav">
+				{% if user.es_admin or user.is_superuser %}
+					<li class="nav-item">
+						<a class="nav-link active" href="{% url 'usuarios:listar' %}">Usuarios</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="{% url 'preguntas:listar' %}">Preguntas</a>
+					</li>
+				{% else %}
+					<li class="nav-item">
+						<a class="nav-link active" href="{% url 'partidas:jugar' %}">Jugar</a>
+					</li>
+                {% endif %}
+				<li class="nav-item">
+					<a class="nav-link active" href="{% url 'partidas:listar' %}">Partidas</a>
+				</li>
+			</ul>
 			<a href="{% url 'usuarios:logout' %}" class="btn btn-primary my-2">Salir</a>
 		</header>
 		{% endif %}

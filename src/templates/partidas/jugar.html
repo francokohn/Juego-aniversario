@@ -1,24 +1,21 @@
 {% extends "base/base.html" %}
 
 {% block contenido %}
-    <h1> Pregunta: </h1>
+    <h1>Preguntas: </h1>
 
-    <form>
-      <div method="POST"> {% csrf_token %}
+    <form method="POST">{% csrf_token %}
         {% for p in preguntas %}
-          {{p.texto_pregunta}}
-
-          {% for r in respuestas %}
-            {{r.texto_respuesta}}
-          {% endfor %}
-
-        {% empty %}
-          Ya respondio todas
+          <fieldset>
+            <legend>{{ p }}</legend>
+            {% for rta in p.get_respuestas %}
+              <input type="radio" name="pta-{{p.id}}" id="rta-{{ rta.id }}" value="{{ rta.id }}">
+              <label for="pta-{{ pta.id }}}">{{ rta }}</label><br>
+            {% endfor %}
+          </fieldset>
         {% endfor %}
-        
-      </div>
-      <button type="submit"> Continuar </button>
-        <button> Salir </button>
-    </form>
 
+      <hr>
+      <a href="{% url 'usuarios:inicio' %}" class="btn btn-link mr-2">Salir</a>
+      <button type="submit"  class="btn btn-primary">Enviar</button>
+    </form>
 {% endblock contenido %}

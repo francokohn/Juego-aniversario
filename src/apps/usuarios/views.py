@@ -60,20 +60,21 @@ def loguear(request):
     if request.user.is_authenticated:
         return redirect(RUTA_INICIO)
 
-    if request.method=='POST':
+    ctx = {}
+
+    if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
-
-        if user is not None :
+		
+        if user is not None:
             login(request, user)
             url = RUTA_LISTAR_USUARIOS if es_admin(user) else RUTA_INICIO
             return redirect(url)
         else:
-            print('Usuario incorrecto')
-            messages.error(request,'Usuario o Password incorrecto')
+            ctx['error'] = 'Usuario o Password incorrecto'
 
-    return render(request, "usuarios/login.html")
+    return render(request, "usuarios/login.html", ctx)
 
 def registrar(request):
 	if request.user.is_authenticated:

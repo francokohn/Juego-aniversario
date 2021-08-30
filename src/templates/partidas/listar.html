@@ -1,6 +1,8 @@
 {% extends "base/base.html" %}{% load static %}
 
 {% block contenido %}
+    <a href="{% url 'partidas:jugar' %}" class="btn btn-link mr-2">Nueva Partida</a>
+    <hr>
 	<h1>Partidas jugadas:</h1>
 	<table class="table table-striped">
         <thead>
@@ -10,6 +12,7 @@
                 <th>Usuario</th>
                 {% endif %}
                 <th>Puntos</th>
+                <th>Fecha</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +23,7 @@
                 <th>{{ p.usuario.username }}</th>
                 {% endif %}
                 <td>{{ p.puntos }}</td>
+                <td>{{ p.fecha }}</td>
             </tr>
             {% endfor %}
         </tbody>

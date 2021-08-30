@@ -1,14 +1,12 @@
 from django.contrib import admin
 #para poder utilizar los models de preguntas
-from .models import Pregunta, Partida
+from .models import Pregunta, Partida, Respuesta
 
 class PreguntasAdmin (admin.ModelAdmin):
 	list_display = [
 		'id', 
 		'texto_pregunta', 
-		'respuesta_correcta', 
-		'respuesta_incorrecta_1', 
-		'respuesta_incorrecta_2'
+		'nivel'
 	]
 
 class PartidasAdmin (admin.ModelAdmin):
@@ -18,8 +16,17 @@ class PartidasAdmin (admin.ModelAdmin):
 		'puntos'
 	]
 
+class RespuestasAdmin (admin.ModelAdmin):
+	list_display = [
+		'pregunta',
+		'texto_respuesta',
+		'es_correcta'
+	]
+
 admin.site.register(Pregunta, PreguntasAdmin)
 admin.site.register(Partida, PartidasAdmin)
+admin.site.register(Respuesta, RespuestasAdmin)
+
 
 
 

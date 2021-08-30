@@ -6,7 +6,5 @@ class PreguntaForm (forms.ModelForm):
 		model = Pregunta
 		fields = [ 
 			'texto_pregunta', 
-			'respuesta_correcta', 
-			'respuesta_incorrecta_1', 
-			'respuesta_incorrecta_2'
+			'nivel'
 		]

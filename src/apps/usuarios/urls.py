@@ -9,5 +9,6 @@ urlpatterns = [
     path('logout/', views.desloguear, name="logout"),
     path('registro/', views.registrar, name="registro"),
 	path('usuarios/', views.listar, name="listar"),
+	path('editar/<int:pk>/', views.EditarUsuario.as_view(), name="editar"),
 	path('usuarios/crear/', views.crear, name="crear_usuario"),
 ]

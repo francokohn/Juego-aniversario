@@ -23,4 +23,15 @@ class CrearUsuarioForm(UserCreationForm):
 			"es_admin"
 		]
 
+class EditForm(forms.ModelForm):
+	class Meta:
+		model = Usuario
+		fields = [
+			"username",
+			"first_name",
+			"last_name",
+			"es_admin",
+			"email",
+		]
+
  

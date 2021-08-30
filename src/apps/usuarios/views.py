@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
-from .forms import RegistroUsuarioForm, CrearUsuarioForm
+from .forms import RegistroUsuarioForm, CrearUsuarioForm, EditForm
 from .models import Usuario
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.views.generic.edit import UpdateView
 from utils.user_test import	es_admin
+from django.urls import reverse_lazy
 
 RUTA_INICIO = 'usuarios:inicio'
 RUTA_LOGIN = 'usuarios:login'
@@ -94,6 +96,21 @@ def registrar(request):
 	ctx = { 'form': form }
 	
 	return render(request, template_name, ctx)
+
+def editar(request,pk):
+	template_name = "usuarios/editar.html"
+	ctx = {
+		'usuario': Usuario.objects.get(id=pk)
+	}
+	return render (request,template_name,ctx)
+
+class EditarUsuario(UpdateView):
+	model = Usuario
+	template_name = "usuarios/editar.html"
+	form_class = EditForm
+
+	def get_success_url (self, **kwargs):
+		return reverse_lazy("usuarios:listar")
 
 @login_required()
 def desloguear(request):

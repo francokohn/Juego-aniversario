@@ -1,0 +1,18 @@
+{% extends "base/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+    <div class="row login-form justify-content-center">
+        <h2 class="text-center col-12 my-4 border-bottom pb-3 text-uppercase">
+            Editar usuario: {{usuario.first_name}} {{usuario.last_name}}
+        </h2>
+
+        <form method="POST" class="col-12 col-md-4"> {% csrf_token %}
+            {{ form|crispy }}
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary mr-2">Editar</button>
+            </div>
+        </form>
+    </div>
+{% endblock contenido %}

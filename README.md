@@ -11,7 +11,7 @@ _Instalar las dependencias del proyecto, ir a la carpeta de requirements y poner
 pip install -r base.txt
 ```
 _Luego creamos el settings 'local.py' en la carpeta "settings" y cambiamos los siguientes datos para la conexión a la DB:_
-```
+
 from .base import *
 ```
 DATABASES = {

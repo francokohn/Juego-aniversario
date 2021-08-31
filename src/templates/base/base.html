@@ -31,19 +31,23 @@
 		<header class="d-flex justify-content-between mx-5 my-3">
 
 			<ul class="nav nav-tabs">
-			  <li class="nav-item">
-			    <a class="nav-link active" href="{% url 'usuarios:inicio' %}">
-			    	<i class="bi bi-house-fill"></i>Home</a>
-			  </li>
-			  <li class="nav-item">
-			    <a class="nav-link" href="{% url 'usuarios:listar' %}"><i class="bi bi-person-fill"></i>Usuarios</a>
-			  </li>
-			  <li class="nav-item">
-			    <a class="nav-link" href="{% url 'preguntas:listar' %}"><i class="bi bi-question-lg"></i>Preguntas</a>
-			  </li>
-			  <li class="nav-item">
-			    <a class="nav-link" href="{% url 'partidas:listar' %}"><i class="bi bi-check-lg"></i>Partidas</a>
-			  </li>
+				{% if user.es_admin or user.is_superuser %}
+
+			  		<li class="nav-item">
+			  		  <a class="nav-link" href="{% url 'usuarios:listar' %}"><i class="bi bi-person-fill"></i>Usuarios</a>
+			 		</li>
+			  		<li class="nav-item">
+			  		  <a class="nav-link" href="{% url 'preguntas:listar' %}"><i class="bi bi-question-lg"></i>Preguntas</a>
+				  </li>
+				{% else %}
+					<li class="nav-item">
+						<a class="nav-link active" href="{% url 'usuarios:inicio' %}">
+				  		<i class="bi bi-house-fill"></i>Home</a>
+					</li> 
+			 		<li class="nav-item">
+			  	  		<a class="nav-link" href="{% url 'partidas:listar' %}"><i class="bi bi-check-lg"></i>Partidas</a>
+			 		</li>
+				{% endif %}	  
 		  </ul>
   		<a class="nav-link disabled " href="{% url 'usuarios:logout' %}"><i class="bi bi-door-open-fill"></i>Salir</a>
 

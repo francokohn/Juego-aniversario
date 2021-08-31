@@ -36,8 +36,6 @@ y ejecutamos el comando 'python manage.py runserver' y listo!_
 * template base: https://getbootstrap.com/docs/4.0/examples/album/
 
 Autores ✒️
-
-* **Andrés Villanueva** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
 * **@LeandroGomezz** - [Leandro Gomez](https://github.com/LeandroGomezz)
 * **@francokohn** - [Franco Kohn](https://github.com/Francokohn)
 * **@nadia-pisarello** - [Nadia Pisarello](https://github.com/nadia-pisarello)

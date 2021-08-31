@@ -30,12 +30,12 @@ DATABASES = {
 _Una vez instalados los requirements y configurado el settings nos ubicamos con el entorno en la carpeta "src"
 y ejecutamos el comando 'python manage.py runserver' y listo!_
 
-##Construido con 🛠️
+## Construido con 🛠️
 * [Django]Framework web
 * [PostgreSQL]Base de datos
 * template base: https://getbootstrap.com/docs/4.0/examples/album/
 
-Autores ✒️
+## Autores ✒️
 * **@LeandroGomezz** - [Leandro Gomez](https://github.com/LeandroGomezz)
 * **@francokohn** - [Franco Kohn](https://github.com/Francokohn)
 * **@nadia-pisarello** - [Nadia Pisarello](https://github.com/nadia-pisarello)

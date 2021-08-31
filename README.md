@@ -33,7 +33,6 @@ y ejecutamos el comando 'python manage.py runserver' y listo!_
 ## Construido con 🛠️
 * [Django]Framework web
 * [PostgreSQL]Base de datos
-* template base: https://getbootstrap.com/docs/4.0/examples/album/
 
 ## Autores ✒️
 * **@LeandroGomezz** - [Leandro Gomez](https://github.com/LeandroGomezz)

@@ -24,6 +24,7 @@ DATABASES = {
         'PORT': '5432'
     }
 }
+```
 
 ## Instalación 🔧
 _Una vez instalados los requirements y configurado el settings nos ubicamos con el entorno en la carpeta "src"
@@ -35,11 +36,11 @@ y ejecutamos el comando 'python manage.py runserver' y listo!_
 * template base: https://getbootstrap.com/docs/4.0/examples/album/
 
 Autores ✒️
-@LeandroGomezz - [Leandro Gomez](https://github.com/LeandroGomezz)
-@francokohn - [Franco Kohn](https://github.com/Francokohn)
-@nadia-pisarello - [Nadia Pisarello](https://github.com/nadia-pisarello)
-@mainardsolis - [Mainard Solis](https://github.com/mainardsolis)
-@RaulVilloria - [RaulVilloria](https://github.com/RaulVilloria)
+* @LeandroGomezz - [Leandro Gomez](https://github.com/LeandroGomezz)
+* @francokohn - [Franco Kohn](https://github.com/Francokohn)
+* @nadia-pisarello - [Nadia Pisarello](https://github.com/nadia-pisarello)
+* @mainardsolis - [Mainard Solis](https://github.com/mainardsolis)
+* @RaulVilloria - [RaulVilloria](https://github.com/RaulVilloria)
 
 ---
 Este trabajo no había sido posible sin la ayuda y la paciencia de Lucas Ibañez [@lucasibaniez](https://github.com/lucasibaniez) 🤓

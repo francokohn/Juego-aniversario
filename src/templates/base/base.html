@@ -23,13 +23,29 @@
 		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&display=swap" rel="stylesheet">
 
+		<style>
+      body{
+        background: url('{% static "informatorio1.png" %}')no-repeat center center fixed;
+  			background-position: right bottom ; 
+        display:flex;
+       	flex-direction: column;
+        justify-content: center;
+        }
+
+        footer {
+        	bottom: 0;
+        	position: fixed;
+				  height:50px;
+				  width:100%;
+				  background-color: #ff000000;	
+				}
+    </style>
 
 	</head>
 
 	<body>
 
 		{% if user.is_authenticated  %}
-
 
 		<header class="d-flex justify-content-between mx-5 my-3">
 
@@ -53,7 +69,6 @@
 				{% endif %}	  
 		  </ul>
   		<a class="nav-link disabled " href="{% url 'usuarios:logout' %}"><i class="bi bi-door-open-fill"></i>Salir</a>
-  		<link rel="shortcut icon" type="image/png" href="{% static 'informatorio.png' %}"/>
 		</header>
 		{% endif %}
 
@@ -63,14 +78,6 @@
 			{% endblock contenido %}
 		</main>	
 
-		<footer class="footer text-center py-2 border-top mt-5 font-weight-bold">
-			<div class="bg-light py-1 fixed-bottom">
-    	  <div class="container text-center">
-		      <b >Version</b> 1.0.0
-        	<p class="text-muted mb-0 py-2">© Grupo 8 - Informatorio All rights reserved.</p>
-      	</div>
-      </div>
-    </footer>  
 
 		{# bootstrap scripts #}
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
@@ -79,5 +86,11 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
     </script>
+			
+
+			
+
 	</body>
+
+	
 </html>

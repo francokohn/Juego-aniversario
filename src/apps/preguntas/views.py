@@ -21,7 +21,7 @@ def listar(request):
 @user_passes_test(es_admin, login_url = '/preguntas/', redirect_field_name = None)
 def crear(request):
     template_name = "preguntas/crear.html"
-
+    
     ctx = { 
         'form': PreguntaForm(),
         'completo': False,
@@ -36,15 +36,15 @@ def crear(request):
             ctx['tipo'] = 'correcta'
         elif 'respuesta_correcta' not in request.session:
             request.session['respuesta_correcta'] = request.POST
-        elif 'respuestas_incorrectas' not in request.session:
-            request.session['respuestas_incorrectas'] = [request.POST]
+        elif 'respuestas_incorrectas1' not in request.session:
+            request.session['respuestas_incorrectas1']= [request.POST]
             ctx['completo'] = True
         else:
-            request.session['respuestas_incorrectas'].append(request.POST)
+            request.session['respuestas_incorrectas2']=[request.POST]
             ctx['completo'] = True
     else:
         ctx['tipo'] = 'pregunta'
-        for key in ['pregunta', 'respuesta_correcta', 'respuestas_incorrectas']:
+        for key in ['pregunta', 'respuesta_correcta', 'respuestas_incorrectas1','respuestas_incorrectas2']:
             quitar_de_session(request, key)
 
     return render(request,template_name, ctx)
@@ -62,7 +62,11 @@ def guardar(request):
         if correcta is not None:
             crear_respuesta(p, correcta, True)
 
-        incorrectas = extraer_data(request, 'respuestas_incorrectas')
+        incorrectas = extraer_data(request, 'respuestas_incorrectas1')
+        if incorrectas is not None:
+            for incorrecta in incorrectas:
+                crear_respuesta(p, incorrecta, False)
+        incorrectas = extraer_data(request, 'respuestas_incorrectas2')
         if incorrectas is not None:
             for incorrecta in incorrectas:
                 crear_respuesta(p, incorrecta, False)
